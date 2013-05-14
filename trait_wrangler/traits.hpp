@@ -38,7 +38,9 @@ struct op_and
 {};
 
 /**
+	Logical AND of trait templates.
 
+	@tparam TplP Trait templates.
 */
 template<template<typename> class... TplP>
 struct op_and_t final {
@@ -64,7 +66,9 @@ struct op_or
 {};
 
 /**
+	Logical OR of trait templates.
 
+	@tparam TplP Trait templates.
 */
 template<template<typename> class... TplP>
 struct op_or_t final {
