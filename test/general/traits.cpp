@@ -124,6 +124,16 @@ template struct tw::disallow_t<
 	>::type
 >;
 
+struct Base {};
+struct Derived final : public Base {};
+using DerivedAlias=Derived;
+
+template struct tw::require_t<
+	Derived,
+	tw::capture<std::is_same, DerivedAlias>::type,
+	tw::capture_post<std::is_base_of, Base>::type
+>;
+
 int main() {
 	return 0;
 }

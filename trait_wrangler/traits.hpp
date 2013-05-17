@@ -123,6 +123,54 @@ struct op_not_t final {
 */
 
 /**
+	Partial trait template type-lead capture.
+
+	@tparam TraitTpl Trait template.
+	@tparam ...ParamP Post-type template parameters.
+*/
+template<
+	template<typename, typename...> class TraitTpl,
+	typename... ParamP
+>
+struct capture {
+	/**
+		Partial template type.
+
+		@tparam T Type to apply to @a TraitTpl.
+	*/
+	template<typename T>
+	struct type
+		: public std::integral_constant<bool,
+			TraitTpl<T, ParamP...>::value
+		>
+	{};
+};
+
+/**
+	Partial trait template type-tail capture.
+
+	@tparam TraitTpl Trait template.
+	@tparam ...ParamP Pre-type template parameters.
+*/
+template<
+	template<typename...> class TraitTpl,
+	typename... ParamP
+>
+struct capture_post {
+	/**
+		Partial template type.
+
+		@tparam T Type to apply to @a TraitTpl.
+	*/
+	template<typename T>
+	struct type
+		: public std::integral_constant<bool,
+			TraitTpl<ParamP..., T>::value
+		>
+	{};
+};
+
+/**
 	Whether a type is either copy constructible or copy assignable.
 
 	@tparam T Type to test.
