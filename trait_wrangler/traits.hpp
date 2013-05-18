@@ -196,6 +196,32 @@ struct is_moveable
 	>
 {};
 
+/**
+	Whether a type is either copy constructible and copy assignable.
+
+	@tparam T Type to test.
+*/
+template<typename T>
+struct is_fully_copyable
+	: public std::integral_constant<bool,
+		std::is_copy_constructible<T>::value &&
+		std::is_copy_assignable   <T>::value
+	>
+{};
+
+/**
+	Whether a type is either move constructible and move assignable.
+
+	@tparam T Type to test.
+*/
+template<typename T>
+struct is_fully_moveable
+	: public std::integral_constant<bool,
+		std::is_move_constructible<T>::value &&
+		std::is_move_assignable   <T>::value
+	>
+{};
+
 /** @} */ // end of name-group Traits
 
 /** @} */ // end of doc-group traits

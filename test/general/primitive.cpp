@@ -17,8 +17,8 @@ template struct tw::require_t<
 	std::is_trivial,
 	std::is_literal_type,
 	std::is_pod,
-	std::is_copy_constructible, std::is_copy_assignable,
-	std::is_move_constructible, std::is_move_assignable
+	tw::is_fully_copyable,
+	tw::is_fully_moveable
 >;
 
 int main() {

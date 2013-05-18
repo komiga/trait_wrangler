@@ -5,59 +5,59 @@
 namespace tw=trait_wrangler;
 
 
-struct only_copyable final {
-	only_copyable()=delete;
-	~only_copyable()=delete;
+struct OnlyCopyable final {
+	OnlyCopyable()=default;
+	~OnlyCopyable()=default;
 
-	only_copyable(only_copyable const&)=default;
-	only_copyable& operator=(only_copyable const&)=default;
+	OnlyCopyable(OnlyCopyable const&)=default;
+	OnlyCopyable& operator=(OnlyCopyable const&)=default;
 
-	only_copyable(only_copyable&&)=delete;
-	only_copyable& operator=(only_copyable&&)=delete;
+	OnlyCopyable(OnlyCopyable&&)=delete;
+	OnlyCopyable& operator=(OnlyCopyable&&)=delete;
 };
 
 // normal
 template struct tw::require<
-	tw::is_copyable<only_copyable>,
-	tw::op_not<tw::is_moveable<only_copyable>>
+	tw::is_fully_copyable<OnlyCopyable>,
+	tw::op_not<tw::is_moveable<OnlyCopyable>>
 >;
 template struct tw::disallow<
-	tw::op_not<tw::is_copyable<only_copyable>>,
-	tw::is_moveable<only_copyable>
+	tw::op_not<tw::is_copyable<OnlyCopyable>>,
+	tw::is_moveable<OnlyCopyable>
 >;
 
 // template
 template struct tw::require_t<
-	only_copyable,
-	tw::is_copyable,
+	OnlyCopyable,
+	tw::is_fully_copyable,
 	tw::op_not_t<tw::is_moveable>::type
 >;
 template struct tw::disallow_t<
-	only_copyable,
+	OnlyCopyable,
 	tw::op_not_t<tw::is_copyable>::type,
 	tw::is_moveable
 >;
 
 // normal - logical operators
 template struct tw::require<tw::op_and<
-	tw::is_copyable<only_copyable>,
-	tw::op_not<tw::is_moveable<only_copyable>>
+	tw::is_fully_copyable<OnlyCopyable>,
+	tw::op_not<tw::is_moveable<OnlyCopyable>>
 >>;
 template struct tw::disallow<tw::op_or<
-	tw::op_not<tw::is_copyable<only_copyable>>,
-	tw::is_moveable<only_copyable>
+	tw::op_not<tw::is_copyable<OnlyCopyable>>,
+	tw::is_moveable<OnlyCopyable>
 >>;
 
 // template - logical operators
 template struct tw::require_t<
-	only_copyable,
+	OnlyCopyable,
 	tw::op_and_t<
-		tw::is_copyable,
+		tw::is_fully_copyable,
 		tw::op_not_t<tw::is_moveable>::type
 	>::type
 >;
 template struct tw::disallow_t<
-	only_copyable,
+	OnlyCopyable,
 	tw::op_or_t<
 		tw::op_not_t<tw::is_copyable>::type,
 		tw::is_moveable
@@ -65,59 +65,59 @@ template struct tw::disallow_t<
 >;
 
 
-struct only_moveable final {
-	only_moveable()=delete;
-	~only_moveable()=delete;
+struct OnlyMoveable final {
+	OnlyMoveable()=default;
+	~OnlyMoveable()=default;
 
-	only_moveable(only_moveable const&)=delete;
-	only_moveable& operator=(only_moveable const&)=delete;
+	OnlyMoveable(OnlyMoveable const&)=delete;
+	OnlyMoveable& operator=(OnlyMoveable const&)=delete;
 
-	only_moveable(only_moveable&&)=default;
-	only_moveable& operator=(only_moveable&&)=default;
+	OnlyMoveable(OnlyMoveable&&)=default;
+	OnlyMoveable& operator=(OnlyMoveable&&)=default;
 };
 
 // normal
 template struct tw::require<
-	tw::op_not<tw::is_copyable<only_moveable>>,
-	tw::is_moveable<only_moveable>
+	tw::op_not<tw::is_copyable<OnlyMoveable>>,
+	tw::is_fully_moveable<OnlyMoveable>
 >;
 template struct tw::disallow<
-	tw::is_copyable<only_moveable>,
-	tw::op_not<tw::is_moveable<only_moveable>>
+	tw::is_copyable<OnlyMoveable>,
+	tw::op_not<tw::is_moveable<OnlyMoveable>>
 >;
 
 // template
 template struct tw::require_t<
-	only_moveable,
+	OnlyMoveable,
 	tw::op_not_t<tw::is_copyable>::type,
-	tw::is_moveable
+	tw::is_fully_moveable
 >;
 template struct tw::disallow_t<
-	only_moveable,
+	OnlyMoveable,
 	tw::is_copyable,
 	tw::op_not_t<tw::is_moveable>::type
 >;
 
 // normal - logical operators
 template struct tw::require<tw::op_and<
-	tw::op_not<tw::is_copyable<only_moveable>>,
-	tw::is_moveable<only_moveable>
+	tw::op_not<tw::is_copyable<OnlyMoveable>>,
+	tw::is_fully_moveable<OnlyMoveable>
 >>;
 template struct tw::disallow<tw::op_or<
-	tw::is_copyable<only_moveable>,
-	tw::op_not<tw::is_moveable<only_moveable>>
+	tw::is_copyable<OnlyMoveable>,
+	tw::op_not<tw::is_moveable<OnlyMoveable>>
 >>;
 
 // template - logical operators
 template struct tw::require_t<
-	only_moveable,
+	OnlyMoveable,
 	tw::op_and_t<
 		tw::op_not_t<tw::is_copyable>::type,
-		tw::is_moveable
+		tw::is_fully_moveable
 	>::type
 >;
 template struct tw::disallow_t<
-	only_moveable,
+	OnlyMoveable,
 	tw::op_or_t<
 		tw::is_copyable,
 		tw::op_not_t<tw::is_moveable>::type
