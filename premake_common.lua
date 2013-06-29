@@ -2,19 +2,19 @@
 -- premake common
 
 newoption {
-	trigger="clang",
-	description="Use Clang in-place of GCC",
+	trigger = "clang",
+	description = "Use Clang in-place of GCC",
 }
 
 if _OPTIONS["clang"] then
-	premake.gcc.cc="clang"
-	premake.gcc.cxx="clang++"
+	premake.gcc.cc = "clang"
+	premake.gcc.cxx = "clang++"
 end
 
 function create_project(name, kind, tdir, root)
-	local proj=project(name)
-		proj.language="C++"
-		proj.kind=kind
+	local proj = project(name)
+	proj.language = "C++"
+	proj.kind = kind
 
 	targetname(name)
 	objdir("out/")
@@ -29,6 +29,7 @@ function create_project(name, kind, tdir, root)
 		flags {"ExtraWarnings", "Optimize"}
 
 	configuration {"linux"}
+		buildoptions {"-std=c++11"}
 		buildoptions {
 			"-pedantic-errors",
 			"-Werror",
@@ -48,7 +49,6 @@ function create_project(name, kind, tdir, root)
 
 			"-Wunused"
 		}
-		buildoptions {"-std=c++11"}
 
 	configuration {"linux", "clang"}
 		buildoptions {"-stdlib=libstdc++"}
@@ -60,8 +60,8 @@ function create_project(name, kind, tdir, root)
 end
 
 function create_test(group, name, src)
-	local root="../.."
-	create_project(group.."_"..name, "ConsoleApp", ".", root)
+	local root = "../.."
+	create_project(group .. "_" .. name, "ConsoleApp", ".", root)
 
 	configuration {}
 		targetname(name)

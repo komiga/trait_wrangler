@@ -11,8 +11,8 @@ solution("test")
 
 include "general"
 
-if _ACTION=="clean" then
-	local prjs=solution().projects
+if _ACTION == "clean" then
+	local prjs = solution().projects
 	for _, prj in ipairs(prjs) do
 		os.rmdir(prj.basedir.."/out")
 	end

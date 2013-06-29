@@ -17,17 +17,30 @@ namespace detail {
 
 /** @cond INTERNAL */
 
-template<bool, class Trait>
+template<
+	bool,
+	class Trait
+>
 struct trait_assert;
 
-template<class Trait>
+template<
+	class Trait
+>
 struct trait_assert<true, Trait> {
-	static_assert(true==Trait::value, "required trait is not satisfied");
+	static_assert(
+		true == Trait::value,
+		"required trait is not satisfied"
+	);
 };
 
-template<class Trait>
+template<
+	class Trait
+>
 struct trait_assert<false, Trait> {
-	static_assert(false==Trait::value, "disallowed trait is present");
+	static_assert(
+		false == Trait::value,
+		"disallowed trait is present"
+	);
 };
 
 // trait pack

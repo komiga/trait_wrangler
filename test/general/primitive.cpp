@@ -4,7 +4,7 @@
 
 #include <type_traits>
 
-namespace tw=trait_wrangler;
+namespace tw = trait_wrangler;
 
 template struct tw::require_t<
 	int,
@@ -21,6 +21,7 @@ template struct tw::require_t<
 	tw::is_fully_moveable
 >;
 
-int main() {
+signed
+main() {
 	return 0;
 }

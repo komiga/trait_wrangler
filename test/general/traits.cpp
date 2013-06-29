@@ -2,18 +2,18 @@
 #include <trait_wrangler/traits.hpp>
 #include <trait_wrangler/test.hpp>
 
-namespace tw=trait_wrangler;
+namespace tw = trait_wrangler;
 
 
 struct OnlyCopyable final {
-	OnlyCopyable()=default;
-	~OnlyCopyable()=default;
+	OnlyCopyable() = default;
+	~OnlyCopyable() = default;
 
-	OnlyCopyable(OnlyCopyable const&)=default;
-	OnlyCopyable& operator=(OnlyCopyable const&)=default;
+	OnlyCopyable(OnlyCopyable const&) = default;
+	OnlyCopyable& operator=(OnlyCopyable const&) = default;
 
-	OnlyCopyable(OnlyCopyable&&)=delete;
-	OnlyCopyable& operator=(OnlyCopyable&&)=delete;
+	OnlyCopyable(OnlyCopyable&&) = delete;
+	OnlyCopyable& operator=(OnlyCopyable&&) = delete;
 };
 
 // normal
@@ -66,14 +66,14 @@ template struct tw::disallow_t<
 
 
 struct OnlyMoveable final {
-	OnlyMoveable()=default;
-	~OnlyMoveable()=default;
+	OnlyMoveable() = default;
+	~OnlyMoveable() = default;
 
-	OnlyMoveable(OnlyMoveable const&)=delete;
-	OnlyMoveable& operator=(OnlyMoveable const&)=delete;
+	OnlyMoveable(OnlyMoveable const&) = delete;
+	OnlyMoveable& operator=(OnlyMoveable const&) = delete;
 
-	OnlyMoveable(OnlyMoveable&&)=default;
-	OnlyMoveable& operator=(OnlyMoveable&&)=default;
+	OnlyMoveable(OnlyMoveable&&) = default;
+	OnlyMoveable& operator=(OnlyMoveable&&) = default;
 };
 
 // normal
@@ -126,7 +126,7 @@ template struct tw::disallow_t<
 
 struct Base {};
 struct Derived final : public Base {};
-using DerivedAlias=Derived;
+using DerivedAlias = Derived;
 
 template struct tw::require_t<
 	Derived,
@@ -134,6 +134,7 @@ template struct tw::require_t<
 	tw::capture_post<std::is_base_of, Base>::type
 >;
 
-int main() {
+signed
+main() {
 	return 0;
 }
