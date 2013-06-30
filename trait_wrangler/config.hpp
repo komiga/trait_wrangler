@@ -10,8 +10,6 @@ see @ref index or the accompanying LICENSE file for full text.
 #ifndef TRAIT_WRANGLER_CONFIG_HPP_
 #define TRAIT_WRANGLER_CONFIG_HPP_
 
-#include "./config.hpp"
-
 #include <cstddef>
 #include <cstdint>
 
