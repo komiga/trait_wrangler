@@ -9,10 +9,10 @@ THERE IS NO NEED FOR YELLING.
 Trait Wrangler is a small C++11 header library for testing traits.
 What were you expecting? Handle with care.
 
-@section License
+@section README_License License
 
-Trait Wrangler carries the MIT license, which can be found both below and in
-the `LICENSE` file.
+Trait Wrangler carries the MIT license, which can be found both below
+and in the `LICENSE` file.
 
 @verbatim
 Copyright (c) 2013 Tim Howard

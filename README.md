@@ -8,8 +8,8 @@ What were you expecting? Handle with care.
 
 ## License
 
-Trait Wrangler carries the MIT license, which can be found both below and in the
-`LICENSE` file.
+Trait Wrangler carries the MIT license, which can be found both below
+and in the `LICENSE` file.
 
 ```
 Copyright (c) 2013 Tim Howard
