@@ -1,5 +1,6 @@
-create_tests(
+
+make_tests(
 	"general", {
-	{"traits", "traits.cpp"},
-	{"primitive", "primitive.cpp"},
+	["traits"] = {nil, nil},
+	["primitive"] = {nil, nil},
 })
