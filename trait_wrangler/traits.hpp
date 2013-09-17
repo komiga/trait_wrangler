@@ -32,7 +32,9 @@ namespace trait_wrangler {
 
 	@param ...TraitP Traits.
 */
-template<class... TraitP>
+template<
+	class... TraitP
+>
 struct op_and
 	: public ::trait_wrangler::detail::op_and<TraitP...>
 {};
@@ -42,14 +44,18 @@ struct op_and
 
 	@tparam TplP Trait templates.
 */
-template<template<typename> class... TplP>
+template<
+	template<typename> class... TplP
+>
 struct op_and_t final {
 	/**
 		Trait template adapter.
 
 		@tparam T Type to apply to @a TplP.
 	*/
-	template<typename T>
+	template<
+		typename T
+	>
 	struct type
 		: public ::trait_wrangler::detail::op_and_t<T, TplP...>
 	{};
@@ -60,7 +66,9 @@ struct op_and_t final {
 
 	@param ...TraitP Traits.
 */
-template<class... TraitP>
+template<
+	class... TraitP
+>
 struct op_or
 	: public ::trait_wrangler::detail::op_or<TraitP...>
 {};
@@ -70,14 +78,18 @@ struct op_or
 
 	@tparam TplP Trait templates.
 */
-template<template<typename> class... TplP>
+template<
+	template<typename> class... TplP
+>
 struct op_or_t final {
 	/**
 		Trait template adapter.
 
 		@tparam T Type to apply to @a TplP.
 	*/
-	template<typename T>
+	template<
+		typename T
+	>
 	struct type
 		: public ::trait_wrangler::detail::op_or_t<T, TplP...>
 	{};
@@ -88,7 +100,9 @@ struct op_or_t final {
 
 	@tparam Trait Trait to negate.
 */
-template<class Trait>
+template<
+	class Trait
+>
 struct op_not
 	: public std::integral_constant<bool,
 		!Trait::value
@@ -100,14 +114,18 @@ struct op_not
 
 	@tparam TraitTpl Trait template to negate.
 */
-template<template<typename> class TraitTpl>
+template<
+	template<typename> class TraitTpl
+>
 struct op_not_t final {
 	/**
 		Trait template adapter.
 
 		@tparam T Type to apply to @a TraitTpl.
 	*/
-	template<typename T>
+	template<
+		typename T
+	>
 	struct type
 		: public std::integral_constant<bool,
 			!TraitTpl<T>::value
@@ -138,7 +156,9 @@ struct capture {
 
 		@tparam T Type to apply to @a TraitTpl.
 	*/
-	template<typename T>
+	template<
+		typename T
+	>
 	struct type
 		: public std::integral_constant<bool,
 			TraitTpl<T, ParamP...>::value
@@ -162,7 +182,9 @@ struct capture_post {
 
 		@tparam T Type to apply to @a TraitTpl.
 	*/
-	template<typename T>
+	template<
+		typename T
+	>
 	struct type
 		: public std::integral_constant<bool,
 			TraitTpl<ParamP..., T>::value
@@ -175,7 +197,9 @@ struct capture_post {
 
 	@tparam T Type to test.
 */
-template<typename T>
+template<
+	typename T
+>
 struct is_copyable
 	: public std::integral_constant<bool,
 		std::is_copy_constructible<T>::value ||
@@ -188,7 +212,9 @@ struct is_copyable
 
 	@tparam T Type to test.
 */
-template<typename T>
+template<
+	typename T
+>
 struct is_moveable
 	: public std::integral_constant<bool,
 		std::is_move_constructible<T>::value ||
@@ -197,11 +223,13 @@ struct is_moveable
 {};
 
 /**
-	Whether a type is either copy constructible and copy assignable.
+	Whether a type is copy constructible and copy assignable.
 
 	@tparam T Type to test.
 */
-template<typename T>
+template<
+	typename T
+>
 struct is_fully_copyable
 	: public std::integral_constant<bool,
 		std::is_copy_constructible<T>::value &&
@@ -210,11 +238,13 @@ struct is_fully_copyable
 {};
 
 /**
-	Whether a type is either move constructible and move assignable.
+	Whether a type is move constructible and move assignable.
 
 	@tparam T Type to test.
 */
-template<typename T>
+template<
+	typename T
+>
 struct is_fully_moveable
 	: public std::integral_constant<bool,
 		std::is_move_constructible<T>::value &&
