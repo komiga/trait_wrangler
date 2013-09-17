@@ -34,7 +34,7 @@ struct require
 {};
 
 /**
-	Disallow trait templates instantiated with type @a T.
+	Require trait templates instantiated with type @a T.
 
 	@tparam T Type to apply to @a TplP.
 	@tparam TplP Trait templates.
