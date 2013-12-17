@@ -14,16 +14,6 @@ see @ref index or the accompanying LICENSE file for full text.
 #include <cstdint>
 
 namespace trait_wrangler {
-
-/**
-	@addtogroup config
-	@{
-*/
-
-
-
-/** @} */ // end of doc-group config
-
 } // namespace trait_wrangler
 
 #endif // TRAIT_WRANGLER_CONFIG_HPP_
