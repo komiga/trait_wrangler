@@ -6,6 +6,15 @@ THERE IS NO NEED FOR YELLING.
 Trait Wrangler is a small C++11 header library for testing traits.
 What were you expecting? Handle with care.
 
+## Building
+
+Being a header library, Trait Wrangler is not compiled directly. However, it
+is fully supported by Clang 3.3+ with libc++ (SVN head) and GCC 4.7.3+ with
+libstdc++. It might even work with MSVC. Don't quote me on that.
+
+The tests can be compiled using plash's standard project protocol:
+http://komiga.com/pp-cpp
+
 ## License
 
 Trait Wrangler carries the MIT license, which can be found both below
