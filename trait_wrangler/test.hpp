@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef TRAIT_WRANGLER_TEST_HPP_
-#define TRAIT_WRANGLER_TEST_HPP_
+#pragma once
 
 #include "./config.hpp"
 #include "./detail/test.hpp"
@@ -99,4 +98,3 @@ constexpr bool or_value() {
 
 } // namespace trait_wrangler
 
-#endif // TRAIT_WRANGLER_TEST_HPP_

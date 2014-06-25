@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef TRAIT_WRANGLER_CONFIG_HPP_
-#define TRAIT_WRANGLER_CONFIG_HPP_
+#pragma once
 
 #include <cstddef>
 #include <cstdint>
@@ -16,4 +15,3 @@ see @ref index or the accompanying LICENSE file for full text.
 namespace trait_wrangler {
 } // namespace trait_wrangler
 
-#endif // TRAIT_WRANGLER_CONFIG_HPP_

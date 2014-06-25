@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef TRAIT_WRANGLER_DETAIL_TEST_HPP_
-#define TRAIT_WRANGLER_DETAIL_TEST_HPP_
+#pragma once
 
 #include "../config.hpp"
 
@@ -103,4 +102,3 @@ struct test_t<K, T, TraitTpl, TplP...>
 } // namespace detail
 } // namespace trait_wrangler
 
-#endif // TRAIT_WRANGLER_DETAIL_TEST_HPP_

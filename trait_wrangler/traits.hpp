@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef TRAIT_WRANGLER_TRAITS_HPP_
-#define TRAIT_WRANGLER_TRAITS_HPP_
+#pragma once
 
 #include "./config.hpp"
 #include "./detail/traits.hpp"
@@ -258,4 +257,3 @@ struct is_fully_moveable
 
 } // namespace trait_wrangler
 
-#endif // TRAIT_WRANGLER_TRAITS_HPP_
