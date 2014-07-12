@@ -133,4 +133,3 @@ struct op_or_t<T, TraitTpl, TplP...>
 
 } // namespace detail
 } // namespace trait_wrangler
-

@@ -14,4 +14,3 @@ see @ref index or the accompanying LICENSE file for full text.
 
 namespace trait_wrangler {
 } // namespace trait_wrangler
-

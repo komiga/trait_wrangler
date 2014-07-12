@@ -256,4 +256,3 @@ struct is_fully_moveable
 /** @} */ // end of doc-group traits
 
 } // namespace trait_wrangler
-

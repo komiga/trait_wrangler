@@ -101,4 +101,3 @@ struct test_t<K, T, TraitTpl, TplP...>
 
 } // namespace detail
 } // namespace trait_wrangler
-

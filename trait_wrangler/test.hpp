@@ -97,4 +97,3 @@ constexpr bool or_value() {
 /** @} */ // end of doc-group test
 
 } // namespace trait_wrangler
-
