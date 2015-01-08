@@ -1,5 +1,5 @@
 /**
-@file traits.hpp
+@file
 @brief Non-standard traits and trait operators.
 
 @author Timothy Howard

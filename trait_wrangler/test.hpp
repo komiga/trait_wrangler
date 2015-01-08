@@ -1,5 +1,5 @@
 /**
-@file test.hpp
+@file
 @brief Trait testing.
 
 @author Timothy Howard

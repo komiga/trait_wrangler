@@ -1,5 +1,5 @@
 /**
-@file detail/test.hpp
+@file
 @brief Tester internals.
 
 @author Timothy Howard

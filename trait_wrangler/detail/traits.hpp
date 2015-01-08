@@ -1,5 +1,5 @@
 /**
-@file detail/traits.hpp
+@file
 @brief Trait internals.
 
 @author Timothy Howard
