@@ -18,24 +18,17 @@ namespace detail {
 
 // trait pack, logical AND
 
-template<
-	class... TraitP
->
+template<class... TraitP>
 struct op_and;
 
-template<
-	class Trait
->
+template<class Trait>
 struct op_and<Trait>
 	: public std::integral_constant<bool,
 		Trait::value
 	>
 {};
 
-template<
-	class Trait,
-	class... TraitP
->
+template<class Trait, class... TraitP>
 struct op_and<Trait, TraitP...>
 	: public std::integral_constant<bool,
 		Trait::value && op_and<TraitP...>::value
@@ -44,16 +37,10 @@ struct op_and<Trait, TraitP...>
 
 // trait template pack, logical AND
 
-template<
-	typename T,
-	template<typename> class... TplP
->
+template<class T, template<class> class... TplP>
 struct op_and_t;
 
-template<
-	typename T,
-	template<typename> class TraitTpl
->
+template<class T, template<class> class TraitTpl>
 struct op_and_t<T, TraitTpl>
 	: public std::integral_constant<bool,
 		TraitTpl<T>::value
@@ -61,9 +48,9 @@ struct op_and_t<T, TraitTpl>
 {};
 
 template<
-	typename T,
-	template<typename> class TraitTpl,
-	template<typename> class... TplP
+	class T,
+	template<class> class TraitTpl,
+	template<class> class... TplP
 >
 struct op_and_t<T, TraitTpl, TplP...>
 	: public std::integral_constant<bool,
@@ -74,24 +61,17 @@ struct op_and_t<T, TraitTpl, TplP...>
 
 // trait pack, logical OR
 
-template<
-	class... TraitP
->
+template<class... TraitP>
 struct op_or;
 
-template<
-	class Trait
->
+template<class Trait>
 struct op_or<Trait>
 	: public std::integral_constant<bool,
 		Trait::value
 	>
 {};
 
-template<
-	class Trait,
-	class... TraitP
->
+template<class Trait, class... TraitP>
 struct op_or<Trait, TraitP...>
 	: public std::integral_constant<bool,
 		Trait::value || op_or<TraitP...>::value
@@ -100,16 +80,10 @@ struct op_or<Trait, TraitP...>
 
 // trait template pack, logical OR
 
-template<
-	typename T,
-	template<typename> class... TplP
->
+template<class T, template<class> class... TplP>
 struct op_or_t;
 
-template<
-	typename T,
-	template<typename> class TraitTpl
->
+template<class T, template<class> class TraitTpl>
 struct op_or_t<T, TraitTpl>
 	: public std::integral_constant<bool,
 		TraitTpl<T>::value
@@ -117,9 +91,9 @@ struct op_or_t<T, TraitTpl>
 {};
 
 template<
-	typename T,
-	template<typename> class TraitTpl,
-	template<typename> class... TplP
+	class T,
+	template<class> class TraitTpl,
+	template<class> class... TplP
 >
 struct op_or_t<T, TraitTpl, TplP...>
 	: public std::integral_constant<bool,

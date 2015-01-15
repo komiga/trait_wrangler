@@ -14,15 +14,10 @@ namespace detail {
 
 /** @cond INTERNAL */
 
-template<
-	bool,
-	class Trait
->
+template<bool, class Trait>
 struct trait_assert;
 
-template<
-	class Trait
->
+template<class Trait>
 struct trait_assert<true, Trait> {
 	static_assert(
 		true == Trait::value,
@@ -30,9 +25,7 @@ struct trait_assert<true, Trait> {
 	);
 };
 
-template<
-	class Trait
->
+template<class Trait>
 struct trait_assert<false, Trait> {
 	static_assert(
 		false == Trait::value,
@@ -42,16 +35,10 @@ struct trait_assert<false, Trait> {
 
 // trait pack
 
-template<
-	bool K,
-	class... TraitP
->
+template<bool K, class... TraitP>
 struct test;
 
-template<
-	bool K,
-	class Trait
->
+template<bool K, class Trait>
 struct test<K, Trait>
 	: trait_assert<K, Trait>
 {};
@@ -70,15 +57,15 @@ struct test<K, Trait, TraitP...>
 
 template<
 	bool K,
-	typename T,
-	template<typename> class... TplP
+	class T,
+	template<class> class... TplP
 >
 struct test_t;
 
 template<
 	bool K,
-	typename T,
-	template<typename> class TraitTpl
+	class T,
+	template<class> class TraitTpl
 >
 struct test_t<K, T, TraitTpl>
 	: trait_assert<K, TraitTpl<T>>
@@ -86,9 +73,9 @@ struct test_t<K, T, TraitTpl>
 
 template<
 	bool K,
-	typename T,
-	template<typename> class TraitTpl,
-	template<typename> class... TplP
+	class T,
+	template<class> class TraitTpl,
+	template<class> class... TplP
 >
 struct test_t<K, T, TraitTpl, TplP...>
 	: trait_assert<K, TraitTpl<T>>
