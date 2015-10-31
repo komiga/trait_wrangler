@@ -12,8 +12,8 @@ Being a header library, Trait Wrangler is not compiled directly. However, it
 is fully supported by Clang 3.3+ with libc++ (SVN head) and GCC 4.7.3+ with
 libstdc++. It might even work with MSVC. Don't quote me on that.
 
-The tests can be compiled using plash's standard project protocol:
-http://komiga.com/pp-cpp
+The tests can be compiled using
+my [standard project protocol](http://komiga.com/pp-cpp).
 
 ## License
 
@@ -21,7 +21,7 @@ Trait Wrangler carries the MIT license, which can be found both below
 and in the `LICENSE` file.
 
 ```
-Copyright (c) 2013-2015 plash <plash@komiga.com>
+Copyright (c) 2013-2015 Coranna Howard <me@komiga.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
